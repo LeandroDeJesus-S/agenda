@@ -1,0 +1,35 @@
+{% if contacts.paginator.num_pages > 1 %}
+<nav aria-label="..." style="margin-left: 41%;">
+  <ul class="pagination pagination-sm">
+
+    {% if contacts.has_previous %}
+      <li class="page-item">
+        <a class="page-link" style="background-color: #131516;" href="?page={{contacts.previous_page_number}}&fetch={{request.GET.fetch}}" tabindex="-1">Anterior</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#" style="background-color: #131516;" tabindex="-1">Anterior</a>
+      </li>
+    {% endif %}
+
+    {% for page in contacts.paginator.page_range %}
+      {% if contacts.number == page %}
+        <li class="page-item active"><a class="page-link" href="?page={{page}}&fetch={{request.GET.fetch}}" >{{page}}</a></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{page}}&fetch={{request.GET.fetch}}" style="background-color: #131516;">{{page}}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if contacts.has_next %}
+      <li class="page-item">
+        <a class="page-link" style="background-color: #131516;" href="?page={{contacts.next_page_number}}&fetch={{request.GET.fetch}}">Próximo</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" style="background-color: #131516;">Próximo</a>
+      </li>
+    {% endif %}
+
+  </ul>
+</nav>
+{% endif %}

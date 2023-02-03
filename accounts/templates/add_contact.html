@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+<title>{% block title %}Adicionar{% endblock title %}</title>
+{% block content %}
+<div class="container mt-5">
+    <form action="{% url 'new_contact' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table>
+            {% include 'partials/_messages.html' %}
+                <tr>
+                    <th><label for="id_Nome">Nome:</label></th>
+                    <td>
+                        
+                        <input style="background-color: #3B3B3B; color: white;" type="text" value="{{request.POST.nome}}" name="nome" maxlength="150" minlength="3" required id="id_Nome">
+                        
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><label for="id_Sobrenome">Sobrenome:</label></th>
+                    <td>
+                        
+                        <input style="background-color: #3B3B3B; color: white;" type="text" name="sobrenome" value="{{request.POST.sobrenome}}" maxlength="150" minlength="3" id="id_Sobrenome">
+                        
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><label for="id_Telefone">Telefone:</label></th>
+                    <td>
+                        
+                        <input style="background-color: #3B3B3B; color: white;" type="text" value="{{request.POST.telefone}}" name="telefone" maxlength="11" minlength="8" required id="id_Telefone">
+                    </td>
+                </tr>
+
+                <tr>
+                <th><label for="id_Email">Email:</label></th>
+                <td>  
+                    <input style="background-color: #3B3B3B; color: white;" type="email" name="email" value="{{request.POST.email}}" maxlength="254" required id="id_Email">
+                </td>
+            </tr>
+
+            <tr>
+                <th><label for="id_Descrição">Descrição:</label></th>
+                <td>
+                <textarea style="background-color: #3B3B3B; color: white;" name="descricao" cols="40" rows="6" id="id_Descrição">
+                </textarea>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_Categoria">Categoria:</label></th>
+                <td>
+                    <select style="background-color: #3B3B3B; color: white;" name="categoria" value="{{ categoria }}" required id="id_Categoria">
+                        {% for categoria in categorias %}
+                            <option {% if categoria == request.POST.categoria %}selected{% endif %} >
+                                {{categoria}}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_foto">Foto:</label></th>
+                <td >
+                    <input type="file" name="foto" accept="image/*" id="id_foto">
+                </td>
+            </tr>
+            {{captcha}}
+            <tr>
+                <td colspan="2" >
+                    <button>Enviar
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock content %}

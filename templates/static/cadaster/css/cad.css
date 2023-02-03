@@ -1,0 +1,58 @@
+.btn-cad {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  #register-form {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  /* Estilos para os campos de formulário */
+  #register-form .form-control {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  /* Estilos para o botão de cadastro */
+  #register-form .btn {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  /* Efeitos de hover para o formulário e os campos de formulário */
+  #register-form:hover,
+  #register-form .form-control:hover {
+    box-shadow: 0 0 8px #999;
+  }
+  /* Efeitos de hover para o botão de cadastro */
+  #register-form .btn:hover {
+    background-color: #3e8e41;
+  }

@@ -1,0 +1,30 @@
+<head>
+    {% include 'partials/_head.html' %}
+    <title>{% block title %}Login{% endblock title %}</title>
+</head>
+<body>
+{% autoescape on %}
+    {% if not user.is_authenticated %}
+    <form id="login-form" method="post" action="{% url 'login' %}" enctype="multipart/form-data">{% csrf_token %}
+        {% include 'partials/_messages.html' %}
+        <label for="username">Nome de usuário:</label>
+        <a href="{% url 'cadaster' %}" class="ml-5">Cadastrar</a>
+        <input type="text" value="{{request.POST.username}}" id="username" name="username" placeholder="Insira seu nome de usuário">
+        <br>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Insira sua senha">
+        {{captcha}}
+        <br>
+        <input type="submit" value="Entrar">
+    </form>
+    {% else %}
+        <div class="mt-5 ml-5">
+        <p>
+            Você ja está logado como <strong>{{user}}</strong> <a href="{% url 'homepage' %}">clique aqui</a> 
+            para voltar a página inicial.
+        </p>
+    </div>
+    {% endif %}
+{% endautoescape %}
+</body>
+</html>

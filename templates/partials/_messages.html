@@ -1,0 +1,9 @@
+{% for message in messages %}
+    {% if message %}
+        <div class="alert {{message.tags}}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{message}}</strong>
+        </div>
+    {% endif %}
+{% endfor %}
+  

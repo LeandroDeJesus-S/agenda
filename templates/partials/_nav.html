@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container ml-auto">
+      <a class="navbar-brand" href="{% url 'homepage' %}">Agenda</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <a href="{% url 'homepage' %}">Meus Contatos</a> 
+      <a href="{% url 'new_contact' %}">Adicionar</a>
+      <form method="get" action="{% url 'search' %}">{% csrf_token %}
+      <div class="form-group d-flex align-items-center mt-3">
+          <input type="search" name='fetch' value="{{request.GET.fetch}}" id="form1" class="form-control form-control-sm" placeholder="Buscar contato">
+          <button type="submit" class="btn btn-primary btn-sm ml-3">Buscar</button>
+        </div>      
+      </form>
+    </div>
+    <a class="mr-5" href="{% url 'logout' %}">Sair</a>
+</nav>

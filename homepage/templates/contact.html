@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %}Contato{% endblock title %}</title>
+
+{% block content %}
+<div class="container text-light">
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <div class="mt-5">
+        {% include 'partials/_messages.html' %}
+      </div>
+      <h1 class="mt-5">{{contact.Nome}} {{contact.Sobrenome}}</h1>
+        {% if contact.foto %}
+          <img src="{{contact.foto.url}}" style="max-width: 200px; heinght: auto;">
+        {% endif %}
+        <dl>
+          <dt>ID</dt>
+          <dd>{{contact.id}}</dd>
+
+          <dt>Telefone</dt>
+          <dd>{{contact.Telefone}}</dd>
+
+          <dt>E-mail</dt>
+          <dd>{{contact.Email}}</dd>
+
+          <dt>Data criação</dt>
+          <dd>{{contact.Data_de_criação}}</dd>
+
+          <dt>Categoria</dt>
+          <dd>{{contact.Categoria}}</dd>
+
+          <dt>Descrição</dt>
+          <dd>
+            {{contact.Descrição}}
+          </dd>
+        </dl>
+      <form method="post" action="{% url 'delete_contact' contact.Nome contact.id %}">{% csrf_token %}
+        <button type="submit" class="btn btn-danger float-right mr-5 mb-5">Excluir</button>
+      </form>
+      <form method="get" action="{% url 'edit_contact' contact.Nome contact.id %}">{% csrf_token %}
+        <button type="submit" class="btn btn-primary float-right mb-5 mr-5">Editar</button>
+      </form>
+      </div>
+    </div>
+</div>
+{% endblock content %}

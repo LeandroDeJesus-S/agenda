@@ -1,0 +1,25 @@
+{% load static %}
+{% autoescape on %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include 'partials/_head.html' %}
+    <title>{% block title %}Agenda{% endblock title %}</title>
+</head>
+
+<body style="background: #131516;">
+
+  <!-- Navigation -->
+  {% include 'partials/_nav.html' %}
+
+  <!-- Page Content -->
+  {% block content %}{% endblock content %}
+
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
+{% endautoescape %}

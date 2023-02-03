@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table text-light">
+        {% include 'partials/_messages.html' %}
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Telefone</th>
+            <th>Categoria</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contact in contacts %}
+              <tr>
+                  <td>
+                    <a href="{% url 'a_contact' contact.Nome contact.id %}"> {{contact.Nome}}</a>
+                  </td>
+                  <td>{{contact.Sobrenome}}</td>
+                  <td>{{contact.Telefone}}</td>
+                  <td>{{contact.Categoria}}</td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% block initial_content %}
+      {% if not contacts %}
+          <p class="text-center">
+            Você ainda não tem contatos <a href="{% url 'new_contact' %}">clique aqui</a> para adicionar um novo contato.
+          </p>
+      {% endif %}
+      {% endblock initial_content %}
+    </div>
+  </div>
+</div>
+<!--pagination-->
+{% include 'partials/_pagination.html' %}
+{% endblock content %}

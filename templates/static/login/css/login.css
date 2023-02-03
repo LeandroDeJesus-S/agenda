@@ -1,0 +1,79 @@
+#login-form {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 14%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+/* Estilos para os campos de formulário */
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+/* Estilos para o botão de login */
+#login-form input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+/* Efeitos de hover para o formulário e os campos de formulário */
+#login-form:hover,
+#login-form input[type="text"]:hover,
+#login-form input[type="password"]:hover {
+    box-shadow: 0 0 8px #999;
+}
+/* Efeitos de hover para o botão de login */
+#login-form input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+@media only screen and (max-width: 600px) {
+    #login-form {
+      width: 90%;
+      padding: 10px;
+      font-size: 12px;
+    }
+    #login-form input[type="text"],
+    #login-form input[type="password"] {
+      width: 100%;
+      padding: 6px 10px;
+      margin: 4px 0;
+      font-size: 12px;
+    }
+    #login-form input[type="submit"] {
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+  }
+/* Estilos para o tema dark */
+body {
+    background-color: #333;
+    color: #fff;
+  }
+  #login-form {
+    background-color: #444;
+    border-color: #555;
+  }
+  #login-form input[type="text"],
+  #login-form input[type="password"] {
+    background-color: #555;
+    border-color: #666;
+    color: #fff;
+  }
+  #login-form input[type="submit"] {
+    background-color: rgb(216, 94, 38);
+    color: #fff;
+  }
