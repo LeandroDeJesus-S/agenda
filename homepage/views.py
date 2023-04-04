@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Concat
 from django.db.models import Q, Value
-from django.http import Http404, HttpResponseForbidden
+from django.http import Http404
 from django.core.exceptions import PermissionDenied
 from .edit_contact_form import AddContatctForm
 from django.contrib import messages
@@ -21,10 +21,10 @@ def homepage(request):
 
 @login_required(redirect_field_name='login')
 def contact(request, contato_nome, contato_id):
-    contct = get_object_or_404(
+    contact_obj = get_object_or_404(
         Contato, Nome=contato_nome, id=contato_id, User=request.user
     )
-    return render(request, 'contact.html', {'contact': contct})
+    return render(request, 'contact.html', {'contact': contact_obj})
 
 
 @login_required(redirect_field_name='login')

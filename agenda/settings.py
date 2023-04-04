@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-szt+@g#$e7pdva%5=b6@hsnqzdlmh=mi4^jo-vn%#u!o-n-k!v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['35.198.53.14', 'minha-agenda.epizy.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,11 +79,8 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sitedjango',
-	'USER': 'cursopython',
-	'PASSWORD': 'curs0pyth0n@169',
-	'HOST': '127.0.0.1'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
